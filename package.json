@@ -4,11 +4,13 @@
   "main": "src/index.js",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-tape-runner": "^2.0.1",
     "tape": "^4.8.0"
   },
   "scripts": {
-    "test": "babel-tape-runner src/**/*.spec.js"
+    "test": "babel-tape-runner src/**/*.spec.js",
+    "start": "babel-node src/index.js"
   }
 }
