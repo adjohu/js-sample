@@ -7,3 +7,14 @@ test('calculateDistanceOnEarth returns correct distance for known places', t => 
   t.same(Math.round(calculateDistanceOnEarth(sf, ny)), 4129);
   t.end();
 });
+
+test('calculate distance throws if not called with 2 points', t => {
+  const a = new Point(37, -12);
+  t.throws(() => calculateDistanceOnEarth(a, 123));
+  t.end();
+});
+
+test('Point requires 2 integers', t => {
+  t.throws(() => new Point(123, 'a'));
+  t.end();
+});

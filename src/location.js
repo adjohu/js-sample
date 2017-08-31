@@ -1,6 +1,6 @@
 export class Point {
   constructor(latitude, longitude) {
-    if (!typeof latitude === 'number' || !typeof longitude === 'number') {
+    if (!(typeof latitude === 'number' && typeof longitude === 'number')) {
       throw new Error('arguments must be numeric');
     }
 
@@ -15,7 +15,7 @@ function degreesToRadians(degrees) {
 
 // returns a centralAngle in radians
 function calculateCentralAngle(pointA, pointB) {
-  if (!pointA instanceof Point || !pointB instanceof Point) {
+  if (!(pointA instanceof Point && pointB instanceof Point)) {
     throw new Error('calculateCentralAngle must be passed 2 Points');
   }
 
