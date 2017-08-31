@@ -19,14 +19,16 @@ function calculateCentralAngle(pointA, pointB) {
     throw new Error('calculateCentralAngle must be passed 2 Points');
   }
 
-  const degrees = Math.acos(
-    Math.sin(pointA.latitude) * Math.sin(pointB.latitude) +
-      Math.cos(pointA.latitude) *
-        Math.cos(pointB.latitude) *
-        Math.cos(Math.abs(pointA.longitude - pointB.longitude))
-  );
+  // This could be done in Point constructor
+  const latA = degreesToRadians(pointA.latitude);
+  const latB = degreesToRadians(pointB.latitude);
+  const lonA = degreesToRadians(pointA.longitude);
+  const lonB = degreesToRadians(pointB.longitude);
 
-  return degreesToRadians(degrees);
+  return Math.acos(
+    Math.sin(latA) * Math.sin(latB) +
+      Math.cos(latA) * Math.cos(latB) * Math.cos(Math.abs(lonA - lonB))
+  );
 }
 
 function calculateDistanceFromCentralAngle(centralAngle, radius) {
