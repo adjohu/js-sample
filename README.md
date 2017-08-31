@@ -1,3 +1,9 @@
+Set up
+======
+```
+yarn
+```
+
 Running
 =======
 ```sh
